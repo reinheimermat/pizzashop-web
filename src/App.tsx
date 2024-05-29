@@ -1,9 +1,7 @@
-import { Button } from './components/ui/button'
+import { RouterProvider } from 'react-router-dom'
+
+import { router } from './routes'
 
 export function App() {
-  return (
-    <>
-      <Button>Click me</Button>
-    </>
-  )
+  return <RouterProvider router={router} />
 }
