@@ -26,7 +26,7 @@ export function Orders() {
   const pageIndex = z.coerce
     .number()
     .transform((page) => page - 1)
-    .parse(searchParams.get('page') ?? 1)
+    .parse(searchParams.get('page') ?? '1')
 
   const { data: result } = useQuery({
     queryKey: ['orders', pageIndex, orderId, customerName, status],
@@ -41,7 +41,7 @@ export function Orders() {
 
   function handlePaginate(pageIndex: number) {
     setSearchParams((state) => {
-      state.set('page', String(pageIndex + 1))
+      state.set('page', String(pageIndex + 1).toString())
 
       return state
     })
